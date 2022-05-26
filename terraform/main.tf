@@ -8,5 +8,5 @@ module "vpc-test" {
   providers = {
     aws = aws.east
   }
-  vpc_test = "10.8.0.0/16"
+  # vpc_test = ["10.8.0.0/16"]
 }

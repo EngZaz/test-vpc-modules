@@ -8,5 +8,6 @@ terraform {
 }
 
 resource "aws_vpc" "main" {
-  cidr_block = var.vpc_test
+    for_each = var.vpc_test
+    cidr_block = each.value.cidr
 }
