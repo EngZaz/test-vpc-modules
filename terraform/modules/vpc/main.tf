@@ -14,3 +14,14 @@ resource "aws_vpc" "loop_vpc" {
     for_each = var.vpc_loop_test
     cidr_block = each.value.cidr
 }
+
+resource "aws_subnet" "multiple-subnets" {
+  for_each = var.subnet_values
+  vpc_id     = aws_vpc.loop_vpc["vpc-1"].id
+  cidr_block = each.value.cidr
+  availability_zone = each.value.az
+
+  tags = {
+    Name = each.value.tag
+  }
+}

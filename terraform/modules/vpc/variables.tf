@@ -9,3 +9,6 @@ variable "vpc_loop_test" {
 variable "vpc_test" {
   
 }
+variable "subnet_values" {
+  
+}
