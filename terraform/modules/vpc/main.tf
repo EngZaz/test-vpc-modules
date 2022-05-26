@@ -6,8 +6,11 @@ terraform {
     }
   }
 }
-
 resource "aws_vpc" "main" {
-    for_each = var.vpc_test
+  cidr_block = var.vpc_test
+}
+
+resource "aws_vpc" "loop_vpc" {
+    for_each = var.vpc_loop_test
     cidr_block = each.value.cidr
 }
